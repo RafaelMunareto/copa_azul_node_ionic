@@ -1,20 +1,36 @@
-import express from 'express'
+import express from 'express';
+import mongoose from 'mongoose';
+import path from 'path';
 import routes from './routes';
 
 class App{
-    constructor(){
-        this.server = express();
-        this.middlewares();
-        this.routes();
-    }
 
-    middlewares(){
-        this.server.use(express.json());
-    }
+  constructor(){
+    this.server = express();
 
-    routes(){
-        this.server.use(routes);
-    }
+    mongoose.connect('mongodb+srv://copa_azul:007986@copaazul.kmbgs.mongodb.net/copa_azul?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    this.middlewares();
+    this.routes();
+  }
+
+  middlewares(){
+
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'uploads'))
+    );
+
+    this.server.use(express.json());
+  }
+
+  routes(){
+    this.server.use(routes);
+  }
+
 }
 
 export default new App().server;

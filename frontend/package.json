@@ -1,7 +1,7 @@
 {
-  "name": "copa_azul",
+  "name": "frontend",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Rafael Munareto",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
