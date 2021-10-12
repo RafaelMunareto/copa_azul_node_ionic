@@ -1,0 +1,7 @@
+{
+  "name": "copa_azul",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
